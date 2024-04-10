@@ -26,7 +26,9 @@ namespace CoenM.ExifToolLib
 
         // Required because AsyncExiftoolException implements ISerializable interface.
         private AsyncExifToolException(SerializationInfo info, StreamingContext context)
+#pragma warning disable SYSLIB0051
             : base(info, context)
+#pragma warning restore SYSLIB0051
         {
             var version = info.GetInt32(VERSION_KEY);
 
@@ -62,7 +64,9 @@ namespace CoenM.ExifToolLib
         public string StandardError { get; }
 
         /// <inheritdoc/>
+#pragma warning disable CS0672 // Member overrides obsolete member
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
+#pragma warning restore CS0672 // Member overrides obsolete member
         {
             if (info == null)
             {
@@ -77,7 +81,9 @@ namespace CoenM.ExifToolLib
             info.AddValue(STANDARD_OUTPUT_KEY, StandardOutput);
             info.AddValue(STANDARD_ERROR_KEY, StandardError);
 
+#pragma warning disable SYSLIB0051
             base.GetObjectData(info, context);
+#pragma warning restore SYSLIB0051
         }
     }
 }

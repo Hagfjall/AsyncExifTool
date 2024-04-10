@@ -5,7 +5,7 @@
     Also target net461. This is because .NET 4.6.1 does not support NetStandard 2.0, even though it claims to.
     See  https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/cross-platform-targeting#multi-targeting
     -->
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net461;net5;net6</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net8</TargetFrameworks>
     <RootNamespace>CoenM.ExifToolLib</RootNamespace>
     <IsPackable>true</IsPackable>
     <NeutralLanguage>en</NeutralLanguage>
@@ -13,12 +13,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0"  Condition="'$(TargetFramework)' == 'netstandard2.0'  OR '$(TargetFramework)' == 'net461' "/>
+	  <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" Condition="'$(TargetFramework)' == 'netstandard2.0'  OR '$(TargetFramework)' == 'net461' " />
 	  <PackageReference Include="MedallionShell" />
 	  <PackageReference Include="Nito.AsyncEx" />
 	  <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net462" Version="1.0.2">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 	  </PackageReference>
+	  <PackageReference Update="JetBrains.Annotations" Version="2023.3.0" />
   </ItemGroup>
 </Project>
